@@ -66,5 +66,9 @@ export default [
     // }
     // 写法4
     redirect: to => '/'
+  },
+  {
+    path: '*',
+    component: () => import('../views/Error404.vue')
   }
 ]
