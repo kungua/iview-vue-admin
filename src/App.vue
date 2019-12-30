@@ -26,7 +26,7 @@ export default {
     }
   },
   watch: {
-    $router (to) {
+    $route (to) {
       to.query &&
       to.query.transitionName &&
       (this.routerTransition = to.query.transitionName)
@@ -65,7 +65,7 @@ export default {
 }
 
 .router-enter-active {
-  transition: opacity 3s ease;
+  transition: opacity .3s ease;
 }
 
 .router-enter-to {
@@ -77,7 +77,7 @@ export default {
 }
 
 .router-leave-active {
-  transition: opacity 3s ease;
+  transition: opacity .3s ease;
 }
 
 .router-leave-to {
