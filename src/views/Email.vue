@@ -1,10 +1,21 @@
 <template>
-  <div>email</div>
+  <div>
+    <button @click="handleClick">按我鸭</button>
+    email
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Email'
+  name: 'Email',
+  mounted () {
+    console.log(this.$bus)
+  },
+  methods: {
+    handleClick () {
+      this.$bus.$emit('on-click', 'hello')
+    }
+  }
 }
 </script>
 
