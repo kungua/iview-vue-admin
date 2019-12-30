@@ -10,6 +10,12 @@ export default {
       type: [String, Number],
       default: 'guakun'
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    //
+    console.log(to.name)
+    console.log(from)
+    next()
   }
 }
 </script>
