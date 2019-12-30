@@ -1,10 +1,10 @@
 const path = require('path')
 const resolve = dir => path.join(__dirname, dir)
 const BASE_URL =
-  process.env.node.NODE_ENV === 'production' ? '/iview-vue-admin' : '/'
+  process.env.NODE_ENV === 'production' ? './' : '/'
 
 module.exports = {
-  baseUrl: BASE_URL,
+  publicPath: BASE_URL,
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
