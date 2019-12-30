@@ -5,17 +5,27 @@ export default [
     path: '/',
     alias: '/home_page',
     name: 'home',
-    component: Home
+    component: Home,
+    props: route => {
+      //
+      return {
+        food: route.query.food
+      }
+    }
   },
   {
     path: '/about',
     name: 'about',
+    props: {
+      food: 'banana'
+    },
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/argu/:name',
     name: 'argu',
+    props: true,
     component: () => import(/* webpackChunkName: "about" */ '../views/Argu.vue')
   },
   {

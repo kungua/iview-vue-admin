@@ -1,10 +1,16 @@
 <template>
-  <div>{{ $route.params.name }}</div>
+  <div>{{ name }}</div>
 </template>
 
 <script>
 export default {
-  name: 'Argu'
+  name: 'Argu',
+  props: {
+    name: {
+      type: [String, Number],
+      default: 'guakun'
+    }
+  }
 }
 </script>
 
