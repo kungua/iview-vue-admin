@@ -19,6 +19,9 @@ export default [
         console.log('这不是 别瞎说')
       }
       next()
+    },
+    meta: {
+      title: '主页'
     }
   },
   {
@@ -34,7 +37,10 @@ export default [
       food: 'banana'
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue')
+      import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      title: '关于'
+    }
   },
   {
     path: '/argu/:name',
