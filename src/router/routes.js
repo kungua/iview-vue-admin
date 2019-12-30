@@ -11,7 +11,21 @@ export default [
       return {
         food: route.query.food
       }
+    },
+    beforeEnter: (to, from, next) => {
+      if (from.name === 'about') {
+        console.log('这是从About页面来的')
+      } else {
+        console.log('这不是 别瞎说')
+      }
+      next()
     }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Login.vue')
   },
   {
     path: '/about',
