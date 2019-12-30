@@ -4,14 +4,20 @@
 set -e
 
 # 构建
+echo Building. this may take a minute...
 npm run build
 
 # cd 到构建输出的目录下
 cd dist
 
+# 这两行是用来适配 history 模式的
+# https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+#cp index.html 404.html
+#find . -name ".DS_Store" -delete
+
 # 部署到自定义域域名
 # echo 'www.example.com' > CNAME
-
+echo Deploying..
 git init
 git config user.name 'kungua'
 git config user.emial 'maguahongkun@outlook.com'
