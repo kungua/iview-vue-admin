@@ -20,14 +20,14 @@ export default {
       console.log(vm)
     })
   },
-  beforeRouteLeave (to, from, next) {
-    const leave = confirm('您确定不再玩会儿了嘛')
-    if (leave) {
-      next()
-    } else {
-      next(false)
-    }
-  },
+  // beforeRouteLeave (to, from, next) {
+  //   const leave = confirm('您确定不再玩会儿了嘛')
+  //   if (leave) {
+  //     next()
+  //   } else {
+  //     next(false)
+  //   }
+  // },
   props: {
     food: {
       type: String,

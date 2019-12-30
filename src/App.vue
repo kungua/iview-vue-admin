@@ -9,15 +9,29 @@
       <router-link to="/about">About</router-link>
       <router-link :to="{ name: 'about' }">About</router-link>
     </div>
-    <router-view/>
-    <router-view name="email"/>
-    <router-view name="tel"/>
+    <transition-group :name="routerTransition">
+      <router-view key="default"/>
+      <router-view key="email" name="email"/>
+      <router-view key="email" name="tel"/>
+    </transition-group>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Admin',
+  data () {
+    return {
+      routerTransition: ''
+    }
+  },
+  watch: {
+    $router (to) {
+      to.query &&
+      to.query.transitionName &&
+      (this.routerTransition = to.query.transitionName)
+    }
+  },
   methods: {
     handleClick (type) {
       if (type === 'back') {
@@ -45,7 +59,31 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+.router-enter {
+  opacity: 0;
+}
+
+.router-enter-active {
+  transition: opacity 3s ease;
+}
+
+.router-enter-to {
+  opacity: 1;
+}
+
+.router-leave {
+  opacity: 1;
+}
+
+.router-leave-active {
+  transition: opacity 3s ease;
+}
+
+.router-leave-to {
+  opacity: 0;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
