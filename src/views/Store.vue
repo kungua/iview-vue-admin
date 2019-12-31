@@ -70,7 +70,8 @@ export default {
       // this.$store.commit('SET_APP_NAME', 'magua')
       // this.SET_APP_NAME('magua2')
       // this.updateAppName()
-      this.$store.dispatch('updateAppName')
+      // this.$store.dispatch('updateAppName')
+      this.$store.state.appName = 'hulu'
     }
     // handleInput (val) {
     //   this.inputValue = val
