@@ -31,6 +31,12 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/Login.vue')
   },
   {
+    path: '/count-to',
+    name: 'count_to',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/CountTo.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     props: {
