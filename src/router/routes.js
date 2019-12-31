@@ -12,14 +12,14 @@ export default [
         food: route.query.food
       }
     },
-    beforeEnter: (to, from, next) => {
-      if (from.name === 'about') {
-        console.log('这是从About页面来的')
-      } else {
-        console.log('这不是 别瞎说')
-      }
-      next()
-    },
+    // beforeEnter: (to, from, next) => {
+    //   if (from.name === 'about') {
+    //     console.log('这是从About页面来的')
+    //   } else {
+    //     console.log('这不是 别瞎说')
+    //   }
+    //   next()
+    // },
     meta: {
       title: '主页'
     }

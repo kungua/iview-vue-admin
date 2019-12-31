@@ -35,26 +35,14 @@ export default {
       default: 'banana'
     }
   },
+  mounted () {
+    this.getInfo()
+  },
   methods: {
     getInfo () {
-      getUserInfo({
-        pageIdx: 1,
-        pageCount: 20,
-        acceptanceCode: '',
-        oaId: '',
-        purchaseId: '',
-        shipmentId: '',
-        brand: '',
-        model: '',
-        recordStatus: '',
-        acceptanceTimeStart: '',
-        acceptanceTimeEnd: '',
-        creator: '',
-        applyDateStart: '',
-        applyDateEnd: ''
-      })
-        .then(res => {
-          console.log(res)
+      getUserInfo({ userId: 21 })
+        .then(({ data }) => {
+          console.log(JSON.stringify(data))
         })
         .catch(err => {
           console.log(err)
