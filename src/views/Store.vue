@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+// import { mapActions } from 'vuex'
+// import { mapMutations } from 'vuex'
 // import { createNamespacedHelpers } from 'vuex'
 // import { mapState, mapGetters } from 'vuex'
 // import AInput from '../components/AInput'
@@ -63,10 +64,13 @@ export default {
     // }
   },
   methods: {
-    ...mapMutations(['SET_APP_NAME']),
+    // ...mapMutations(['SET_APP_NAME']),
+    // ...mapActions(['updateAppName']),
     handleChangeAppName () {
       // this.$store.commit('SET_APP_NAME', 'magua')
-      this.SET_APP_NAME('magua2')
+      // this.SET_APP_NAME('magua2')
+      // this.updateAppName()
+      this.$store.dispatch('updateAppName')
     }
     // handleInput (val) {
     //   this.inputValue = val
