@@ -1,12 +1,13 @@
 <template>
   <div>
-    <p>appName: {{ appName }}</p>
-    <button @click="handleChangeAppName">点我改变 appName</button>
+    <!--    <p>appName: {{ appName }}</p>-->
+    <!--    <button @click="handleChangeAppName">点我改变 appName</button>-->
     <!--    <p>appNameWithVersion: {{ appNameWithVersion }}</p>-->
     <!--    <p>userNameFirstLetter: {{ userNameFirstLetter }}</p>-->
-    <!--    <a-input @input="handleInput"/>-->
-    <!--    <p>Text: {{ inputValue }}</p>-->
-    <!--    <a-show :content="inputValue"/>-->
+    <!--    <a-input :value="stateValue" @input="handleInput"/>-->
+    <a-input v-model="stateValue"/>
+    <p>Text: {{ inputValue }}</p>
+    <a-show :content="inputValue"/>
     <!--    <p>userName: {{ userName }}</p>-->
     <!--    <p>{{ inputValue }} -> lastLetter is : {{ inputValueLastLetter }}</p>-->
   </div>
@@ -17,15 +18,15 @@
 // import { mapMutations } from 'vuex'
 // import { createNamespacedHelpers } from 'vuex'
 // import { mapState, mapGetters } from 'vuex'
-// import AInput from '../components/AInput'
-// import AShow from '../components/AShow'
+import AInput from '../components/AInput'
+import AShow from '../components/AShow'
 
 // const { mapState } = createNamespacedHelpers('user')
 export default {
   name: 'Store',
   components: {
-    // AInput,
-    // AShow
+    AInput,
+    AShow
   },
   data () {
     return {
@@ -58,6 +59,14 @@ export default {
     // 方法一
     appName () {
       return this.$store.state.appName
+    },
+    stateValue: {
+      get () {
+        return this.$store.state.stateValue
+      },
+      set (val) {
+        this.$store.commit('SET_STATE_VALUE', val)
+      }
     }
     // userName () {
     //   return this.$store.state.user.userName
@@ -66,16 +75,16 @@ export default {
   methods: {
     // ...mapMutations(['SET_APP_NAME']),
     // ...mapActions(['updateAppName']),
-    handleChangeAppName () {
-      // this.$store.commit('SET_APP_NAME', 'magua')
-      // this.SET_APP_NAME('magua2')
-      // this.updateAppName()
-      // this.$store.dispatch('updateAppName')
-      this.$store.state.appName = 'hulu'
+    // handleChangeAppName () {
+    //   // this.$store.commit('SET_APP_NAME', 'magua')
+    //   // this.SET_APP_NAME('magua2')
+    //   // this.updateAppName()
+    //   // this.$store.dispatch('updateAppName')
+    //   this.$store.state.appName = 'hulu'
+    // },
+    handleInput (val) {
+      this.$store.commit('SET_STATE_VALUE', val)
     }
-    // handleInput (val) {
-    //   this.inputValue = val
-    // }
   }
 }
 </script>
