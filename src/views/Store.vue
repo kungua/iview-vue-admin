@@ -1,16 +1,19 @@
 <template>
   <div>
+    <!--    <p>appNameWithVersion: {{ appNameWithVersion }}</p>-->
+    <p>userNameFirstLetter: {{ userNameFirstLetter }}</p>
     <a-input @input="handleInput"/>
     <p>Text: {{ inputValue }}</p>
     <a-show :content="inputValue"/>
     <p>appName: {{ appName }}</p>
     <p>userName: {{ userName }}</p>
+    <p>{{ inputValue }} -> lastLetter is : {{ inputValueLastLetter }}</p>
   </div>
 </template>
 
 <script>
 // import { createNamespacedHelpers } from 'vuex'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import AInput from '../components/AInput'
 import AShow from '../components/AShow'
 
@@ -27,6 +30,13 @@ export default {
     }
   },
   computed: {
+    // appNameWithVersion () {
+    //   return this.$store.getters.appNameWithVersion
+    // },
+    ...mapGetters('user', ['userNameFirstLetter']),
+    inputValueLastLetter () {
+      return this.inputValue.substr(-1, 1)
+    },
     // // 方法五
     // ...mapState('user', {
     //   userName: state => state.userName
