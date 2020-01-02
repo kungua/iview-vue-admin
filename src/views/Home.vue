@@ -1,20 +1,559 @@
 <template>
   <div class="home">
-    <b>{{ food }}</b>
-    <button @click="getInfo">获取用户信息</button>
-    <img alt="Vue logo" src="../assets/img/logo.png"/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Row>
+      <i-col></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="12"></i-col>
+      <i-col :span="12"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+      <i-col :span="8"></i-col>
+    </Row>
+    <!--    <b>{{ food }}</b>-->
+    <!--    <button @click="getInfo">获取用户信息</button>-->
+    <!--    <img alt="Vue logo" src="../assets/img/logo.png"/>-->
+    <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
+// import HelloWorld from '../components/HelloWorld.vue'
 import { getUserInfo } from '../api/user'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    // HelloWorld
   },
   // beforeRouteEnter (to, from, next) {
   //   next(vm => {
@@ -51,3 +590,12 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+.ivu-col {
+  height: 50px;
+  margin-top: 10px;
+  background-color: pink;
+  background-clip: content-box;
+}
+</style>

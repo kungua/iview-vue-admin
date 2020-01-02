@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Button @click="handleClick('back')"> 返回上一页</Button>
-      <Button @click="handleClick('push')"> 跳转到 parent</Button>
-      <Button @click="handleClick('replace')"> 替换到 parent</Button>
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      <router-link :to="{ name: 'about' }">About</router-link>
-    </div>
-    <div class="bar"></div>
-    <!--    <router-view/>-->
-    <transition-group :name="routerTransition">
-      <router-view key="default"/>
-      <router-view key="email" name="email"/>
-      <router-view key="tel" name="tel"/>
-    </transition-group>
+    <router-view/>
+    <!--    <div id="nav">-->
+    <!--      <Button @click="handleClick('back')"> 返回上一页</Button>-->
+    <!--      <Button @click="handleClick('push')"> 跳转到 parent</Button>-->
+    <!--      <Button @click="handleClick('replace')"> 替换到 parent</Button>-->
+    <!--      <router-link to="/">Home</router-link>-->
+    <!--      |-->
+    <!--      <router-link to="/about">About</router-link>-->
+    <!--      <router-link :to="{ name: 'about' }">About</router-link>-->
+    <!--    </div>-->
+    <!--    <div class="bar"></div>-->
+    <!--        <transition-group :name="routerTransition">-->
+    <!--          <router-view key="default"/>-->
+    <!--          <router-view key="email" name="email"/>-->
+    <!--          <router-view key="tel" name="tel"/>-->
+    <!--        </transition-group>-->
   </div>
 </template>
 
@@ -61,7 +61,17 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+html,
+body {
+  height: 100%;
+  /*min-width: 1300px;*/
+
+  #app {
+    height: 100%;
+  }
+}
+
 .router-enter {
   opacity: 0;
 }

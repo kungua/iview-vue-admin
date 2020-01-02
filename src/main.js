@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Bus from './lib/bus'
+import ViewUI from 'view-design'
+import 'view-design/dist/styles/iview.css'
 
 // import CountTo from './components/count-to/CountTo'
 
@@ -10,6 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./mock')
 }
 
+Vue.use(ViewUI)
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
 

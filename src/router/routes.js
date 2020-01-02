@@ -1,11 +1,12 @@
-import Home from '../views/Home.vue'
+import Layout from '../views/Layout'
+import Home from '../views/Home'
 
 export default [
   {
     path: '/',
     alias: '/home_page',
     name: 'home',
-    component: Home,
+    component: Layout,
     props: route => {
       //
       return {
@@ -22,7 +23,13 @@ export default [
     // },
     meta: {
       title: '主页'
-    }
+    },
+    children: [
+      {
+        path: '/home',
+        component: Home
+      }
+    ]
   },
   {
     path: '/login',
