@@ -49,6 +49,12 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/RenderPage.vue')
   },
   {
+    path: '/menu-page',
+    name: 'menu_page',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/MenuPage.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     props: {

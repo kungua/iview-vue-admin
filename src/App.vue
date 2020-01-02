@@ -10,6 +10,7 @@
       <router-link :to="{ name: 'about' }">About</router-link>
     </div>
     <div class="bar"></div>
+    <!--    <router-view/>-->
     <transition-group :name="routerTransition">
       <router-view key="default"/>
       <router-view key="email" name="email"/>
@@ -66,7 +67,7 @@ export default {
 }
 
 .router-enter-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.8s ease;
 }
 
 .router-enter-to {
@@ -78,7 +79,7 @@ export default {
 }
 
 .router-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.8s ease;
 }
 
 .router-leave-to {
