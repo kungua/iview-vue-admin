@@ -43,6 +43,12 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/SplitPane.vue')
   },
   {
+    path: '/render-page',
+    name: 'render_page',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/RenderPage.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     props: {
@@ -85,7 +91,7 @@ export default [
   {
     path: '/main',
     // 写法1
-    // redirect: '/'
+    redirect: '/'
     // 写法2
     // redirect: {
     //   name: 'home'
@@ -96,8 +102,8 @@ export default [
     //     name: 'home'
     //   }
     // }
-    // 写法4
-    redirect: to => '/'
+    // // 写法4
+    // redirect: to => '/'
   },
   {
     path: '/store',
