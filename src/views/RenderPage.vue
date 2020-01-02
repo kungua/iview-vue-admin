@@ -16,6 +16,7 @@
 
 <script>
 import List from '../components/list'
+import CountTo from '../components/count-to/CountTo'
 
 export default {
   name: 'RenderPage',
@@ -24,19 +25,33 @@ export default {
   },
   data () {
     return {
-      list: [{ name: 'zhangsan' }, { name: 'wangwu' }]
+      list: [{ name: 'zhangsan', endVal: 100 }, { name: 'wangwu', endVal: 90 }]
     }
   },
   methods: {
     handleClick (ev) {
       console.log(ev)
     },
-    renderFunc (h, name) {
-      return h('i', {
-        style: {
-          color: 'pink'
-        }
-      }, name)
+    handleEnd () {
+      console.log('end!')
+    },
+    // renderFunc (h, name) {
+    renderFunc (h, endVal) {
+      return (
+        // <i style={{ color: 'red' }} on-click={this.handleClick} >{name}</i>
+        <CountTo
+          style={{ color: 'red' }}
+          nativeOn-click={this.handleClick}
+          on-on-animation-end={this.handleEnd}
+          endVal={endVal} >
+          {name}
+        </CountTo>
+      )
+      // return h('i', {
+      //   style: {
+      //     color: 'pink'
+      //   }
+      // }, name)
     }
   }
 }

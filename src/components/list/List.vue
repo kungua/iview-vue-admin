@@ -1,8 +1,8 @@
 <template>
   <ul>
-    <li v-for="(item, index) in list" :key="`item_${index}`">
+    <li @mousemove.prevent="handleMove" v-for="(item, index) in list" :key="`item_${index}`">
       <span v-if="!render">{{ item.name }}</span>
-      <render-dom v-else :render-func="render" :name="item.name"/>
+      <render-dom v-else :render-func="render" :end-val="item.endVal"/>
     </li>
   </ul>
 </template>
@@ -25,6 +25,11 @@ export default {
   },
   components: {
     RenderDom
+  },
+  methods: {
+    handleMove (ev) {
+      console.log(ev)
+    }
   }
 }
 </script>

@@ -1,8 +1,8 @@
 export default {
   functional: true,
   props: {
-    name: String,
+    endVal: Number,
     renderFunc: Function
   },
-  render: (h, ctx) => ctx.props.renderFunc(h, ctx.props.name)
+  render: (h, ctx) => ctx.props.renderFunc(h, ctx.props.endVal)
 }
