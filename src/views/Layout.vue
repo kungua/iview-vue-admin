@@ -1,12 +1,11 @@
 <template>
   <div class="layout-wrapper">
     <Layout class="layout-outer">
-      <Sider
-        v-model="collapsed"
-        breakpoint="sm"
-        collapsible
-        hide-trigger
-      ></Sider>
+      <Sider v-model="collapsed" breakpoint="sm" collapsible hide-trigger>
+        <side-menu :collapsed="collapsed" :list="list">
+          我是一个 menu
+        </side-menu>
+      </Sider>
       <Layout>
         <Header class="header-wrapper">
           <Icon
@@ -18,7 +17,7 @@
         </Header>
         <i-content class="content-con">
           <Card class="page-card" shadow>
-            <router-view />
+            <router-view/>
           </Card>
         </i-content>
       </Layout>
@@ -27,10 +26,37 @@
 </template>
 
 <script>
+import SideMenu from '../components/SideMenu'
+
 export default {
+  components: {
+    SideMenu
+  },
   data () {
     return {
-      collapsed: false
+      collapsed: true,
+      list: [
+        { title: '1111', icon: 'ios-analytics' },
+        { title: '2222', icon: 'ios-analytics' },
+        {
+          title: '3333',
+          icon: 'ios-analytics',
+          children: [
+            { title: '3333-1', icon: 'ios-analytics' },
+            {
+              title: '3333-2',
+              icon: 'ios-analytics',
+              children: [
+                { title: '3333-2-1', icon: 'ios-analytics' },
+                {
+                  title: '3333-2-2',
+                  children: [{ title: '3333-2-2-1' }, { title: '3333-2-2-2' }]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   computed: {
