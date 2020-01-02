@@ -9,6 +9,7 @@
       <router-link to="/about">About</router-link>
       <router-link :to="{ name: 'about' }">About</router-link>
     </div>
+    <div class="bar"></div>
     <transition-group :name="routerTransition">
       <router-view key="default"/>
       <router-view key="email" name="email"/>
@@ -65,7 +66,7 @@ export default {
 }
 
 .router-enter-active {
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .router-enter-to {
@@ -77,31 +78,14 @@ export default {
 }
 
 .router-leave-active {
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .router-leave-to {
   opacity: 0;
 }
 
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.bar {
+  margin: 100px;
 }
 </style>

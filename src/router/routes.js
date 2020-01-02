@@ -37,6 +37,12 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/CountTo.vue')
   },
   {
+    path: '/split-pane',
+    name: 'split_pane',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/SplitPane.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     props: {
