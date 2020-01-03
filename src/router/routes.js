@@ -62,6 +62,12 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/MenuPage.vue')
   },
   {
+    path: '/folder-tree',
+    name: 'folder_tree',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/folder-tree/FolderTree.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     props: {
