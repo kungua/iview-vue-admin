@@ -1,10 +1,11 @@
 <template>
   <div class="folder-wrapper">
     <folder-tree
-      :folder-list="folderList"
-      :file-list="fileList"
+      :folder-list.sync="folderList"
+      :file-list.sync="fileList"
       :folder-drop="folderDrop"
       :file-drop="fileDrop"
+      :before-delete="beforeDelete"
     />
   </div>
 </template>
@@ -42,6 +43,21 @@ export default {
           title: '删除文件'
         },
       ]
+    }
+  },
+  methods: {
+    beforeDelete () {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let error = null
+          error = new Error()
+          if (!error) {
+            resolve()
+          } else {
+            reject(error)
+          }
+        }, 2000)
+      })
     }
   },
   mounted () {
