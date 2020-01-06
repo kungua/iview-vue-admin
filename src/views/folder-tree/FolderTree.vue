@@ -62,8 +62,8 @@ export default {
   },
   mounted () {
     Promise.all([getFolderList(), getFileList()]).then(res => {
-      this.folderList = res[0].data
-      this.fileList = res[1].data
+      this.folderList = res[0]
+      this.fileList = res[1]
     })
   }
 }
