@@ -1,6 +1,12 @@
 <template>
   <div class="home">
     <Button @click="handleLogout">退出登录</Button>
+
+    <Row>
+      {{ rules }}
+      <Button v-if="rules.edit_button">编辑</Button>
+      <Button v-if="rules.publish_button">发布</Button>
+    </Row>
     <Row>
       <i-col></i-col>
     </Row>
@@ -26,7 +32,7 @@
 <script>
 // import HelloWorld from '../components/HelloWorld.vue'
 import { getUserInfo } from '../api/user'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'home',
@@ -51,6 +57,11 @@ export default {
       type: String,
       default: 'banana'
     }
+  },
+  computed: {
+    ...mapState({
+      rules: state => state.user.rules
+    })
   },
   mounted () {
     this.getInfo()

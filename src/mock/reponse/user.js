@@ -71,7 +71,7 @@ export const authorization = () => {
         },
         component: {
           edit_button: true,
-          publish_button: true
+          publish_button: false
         }
       }
     },
