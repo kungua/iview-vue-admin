@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import routes from './routes'
-// import store from '../store'
-// import { setTitle, getToken, setToken } from '../lib/utils'
-import { setTitle } from '../lib/utils'
+import { routes } from './router'
+import store from '../store'
+import { setTitle, getToken } from '../lib/utils'
 
 Vue.use(VueRouter)
 
@@ -15,7 +14,53 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   to.meta && setTitle(to.meta.title)
-  next()
+
+  const token = getToken()
+  if (token) {
+    if (!store.state.router.hasGetRules) {
+      store.dispatch('authorization').then(rules => {
+        store.dispatch('concatRoutes', rules).then(routers => {
+          console.log('addRoutes')
+          console.log(routers)
+          router.addRoutes(routers)
+          next({ ...to, replace: true })
+        }).catch(() => {
+          next({ name: 'login' })
+        })
+      })
+    } else {
+      console.log(store.state.router)
+      console.log('to')
+      console.log(to)
+      next()
+    }
+  } else {
+    if (to.name === 'login') next()
+    else next({ name: 'login' })
+  }
+  // const token = getToken()
+  // if (token) {
+  //   if (!store.state.router.hasGetRules) {
+  //     store.dispatch('authorization').then(rules => {
+  //       store.dispatch('concatRoutes', rules).then(routers => {
+  //         router.addRoutes(routers.filter(item => item.name !== 'login'))
+  //         next({ ...to, replace: true })
+  //       }).catch(() => {
+  //         next({ name: 'login' })
+  //       })
+  //     })
+  //   } else {
+  //     next()
+  //   }
+  // } else {
+  //   if (to.name === 'login') {
+  //     next()
+  //   } else {
+  //     next({ name: 'login' })
+  //   }
+  // }
+
+  // next()
   // const token = getToken()
   // if (token) {
   //   store
@@ -55,8 +100,8 @@ router.beforeEach((to, from, next) => {
 
 // router.beforeResolve()
 
-router.afterEach((to, from) => {
-  // loading = false
-})
+// router.afterEach((to, from) => {
+//   // loading = false
+// })
 
 export default router

@@ -22,7 +22,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       login({ userName, password })
         .then(res => {
-          console.log(res)
           if (res.code === 200) {
             setToken(res.data.token)
             resolve()
@@ -47,7 +46,7 @@ const actions = {
             reject(new Error('token error'))
           } else {
             setToken(res.data.token)
-            resolve()
+            resolve(res.data.rules.page)
           }
         })
         .catch(error => {
