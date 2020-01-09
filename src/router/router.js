@@ -33,6 +33,12 @@ export const routerMap = [
     ]
   },
   {
+    path: '/table',
+    name: 'table',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Table.vue')
+  },
+  {
     path: '/count-to',
     name: 'count_to',
     component: () =>

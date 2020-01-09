@@ -20,8 +20,6 @@ router.beforeEach((to, from, next) => {
     if (!store.state.router.hasGetRules) {
       store.dispatch('authorization').then(rules => {
         store.dispatch('concatRoutes', rules).then(routers => {
-          console.log('addRoutes')
-          console.log(routers)
           router.addRoutes(routers)
           next({ ...to, replace: true })
         }).catch(() => {
@@ -29,14 +27,14 @@ router.beforeEach((to, from, next) => {
         })
       })
     } else {
-      console.log(store.state.router)
-      console.log('to')
-      console.log(to)
       next()
     }
   } else {
-    if (to.name === 'login') next()
-    else next({ name: 'login' })
+    if (to.name === 'login') {
+      next()
+    } else {
+      next({ name: 'login' })
+    }
   }
   // const token = getToken()
   // if (token) {

@@ -54,6 +54,7 @@ export const authorization = () => {
         page: {
           home: true,
           home_index: true,
+          table: true,
           about: true,
           argu: true,
           count_to: true,

@@ -13,3 +13,10 @@ export const getFileList = () => {
     method: 'get',
   })
 }
+
+export const getTableData = () => {
+  return _$.request({
+    url: '/getTableData',
+    method: 'get',
+  })
+}

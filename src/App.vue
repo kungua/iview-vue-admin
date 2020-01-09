@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <layout>
+      <router-view/>
+    </layout>
     <!--    <div id="nav">-->
     <!--      <Button @click="handleClick('back')"> 返回上一页</Button>-->
     <!--      <Button @click="handleClick('push')"> 跳转到 parent</Button>-->
@@ -20,8 +22,13 @@
 </template>
 
 <script>
+import Layout from './views/Layout'
+
 export default {
   name: 'Admin',
+  components: {
+    Layout
+  },
   data () {
     return {
       routerTransition: ''
