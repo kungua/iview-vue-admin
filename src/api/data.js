@@ -20,3 +20,11 @@ export const getTableData = () => {
     method: 'get',
   })
 }
+
+export const sentFormData = (data) => {
+  return _$.request({
+    url: '/formData',
+    data,
+    method: 'post'
+  })
+}

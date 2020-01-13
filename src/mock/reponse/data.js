@@ -50,3 +50,7 @@ export const getFolderList = () => {
   })
   return arr
 }
+
+export const sentFormData = (req) => {
+  return JSON.parse(req.body)
+}

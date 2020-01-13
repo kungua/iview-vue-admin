@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-export const getUserInfo = options => {
+export const getUserInfo = () => {
   const template = {
     'str|2-4': 'hulu',
     'name|5': 'hulu',
@@ -60,7 +60,7 @@ export const authorization = () => {
           count_to: true,
           menu_page: true,
           upload: true,
-          form: false,
+          form: true,
           folder_tree: false,
           render_page: true,
           split_pane: true,

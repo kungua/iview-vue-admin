@@ -57,6 +57,12 @@ export const routerMap = [
       import(/* webpackChunkName: "about" */ '../views/Upload.vue')
   },
   {
+    path: '/form',
+    name: 'form',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Form.vue')
+  },
+  {
     path: '/render-page',
     name: 'render_page',
     component: () =>
