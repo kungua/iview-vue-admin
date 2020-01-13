@@ -51,6 +51,12 @@ export const routerMap = [
       import(/* webpackChunkName: "about" */ '../views/SplitPane.vue')
   },
   {
+    path: '/upload',
+    name: 'upload',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Upload.vue')
+  },
+  {
     path: '/render-page',
     name: 'render_page',
     component: () =>
