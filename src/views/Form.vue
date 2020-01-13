@@ -1,8 +1,19 @@
 <template>
   <div class="form-wrapper">
     Form 组件
+    <Button @click="handleSubmit" type="primary">提交</Button>
+    <Button @click="handleReset">重置</Button>
 
-    <form-group :list="formList" :url="url"></form-group>
+    <form-single
+      v-for="(item, index) in formList"
+      :config="item"
+      :value-data="valueData"
+      :rule-data="ruleData"
+      :error-store="errorStore"
+      :key="`form_${index}`"
+      ref="formSingle">
+    </form-single>
+    <!--    <form-group :list="formList" :url="url"></form-group>-->
     <!--    <Form :model="formData" :rules="rule" :label-width="80" ref="form">-->
     <!--      <FormItem label="姓名" prop="name">-->
     <!--        <Input v-model="formData.name"/>-->
@@ -20,8 +31,11 @@
 </template>
 
 <script>
-import FormGroup from '../components/form-group'
-// import { sentFormData } from '../api/data'
+// import FormGroup from '../components/form-group'
+import clonedeep from 'clonedeep'
+import formData from '../mock/reponse/formData'
+import FormSingle from '../components/form-single'
+import { sentFormData } from '../api/data'
 
 // const validateName = (rule, value, callback) => {
 //   if (value !== 'hongkun') {
@@ -34,76 +48,16 @@ import FormGroup from '../components/form-group'
 export default {
   name: 'FormPage',
   components: {
-    FormGroup
+    FormSingle
+    // FormGroup
   },
   data () {
     return {
       url: '/data/formData',
-      formList: [
-        {
-          name: 'name',
-          type: 'i-input',
-          value: '',
-          label: '姓名',
-          rule: [
-            { required: true, message: '你又不写名！', trigger: 'blur' }
-          ]
-        },
-        {
-          name: 'range',
-          type: 'slider',
-          value: [10, 40],
-          range: true,
-          label: '范围'
-        },
-        {
-          name: 'gender',
-          type: 'i-select',
-          value: '',
-          label: '性别',
-          children: {
-            type: 'i-option',
-            list: [
-              { title: '男', value: 'male' },
-              { title: '女', value: 'female' }
-            ]
-          }
-        },
-        {
-          name: 'education',
-          type: 'radio-group',
-          value: 1,
-          label: '学历',
-          children: {
-            type: 'radio',
-            list: [
-              { label: 1, title: '本科' },
-              { label: 2, title: '研究生' },
-              { label: 3, title: '博士生' }
-            ]
-          }
-        },
-        {
-          name: 'skill',
-          type: 'checkbox-group',
-          value: [1, 2],
-          label: '技能',
-          children: {
-            type: 'checkbox',
-            list: [
-              { label: 1, title: 'Vue' },
-              { label: 2, title: 'Nodejs' },
-              { label: 3, title: 'MySql' }
-            ]
-          }
-        },
-        {
-          name: 'inWork',
-          type: 'i-switch',
-          value: false,
-          label: '在职'
-        },
-      ]
+      formList: formData,
+      valueData: {},
+      ruleData: {},
+      errorStore: {},
       // formData: {
       //   name: '',
       //   age: 18
@@ -116,7 +70,45 @@ export default {
       // }
     }
   },
+  mounted () {
+    const valueData = {}
+    const ruleData = {}
+    const errorStore = {}
+    formData.forEach(item => {
+      valueData[item.name] = item.value
+      ruleData[item.name] = item.rule
+      errorStore[item.name] = ''
+    })
+    this.valueData = valueData
+    this.ruleData = ruleData
+    this.errorStore = errorStore
+  },
   methods: {
+    handleSubmit () {
+      this.$refs.singleForm.validate()
+      // this.$refs.form.validate(valid => {
+      //   if (valid) {
+      //     sentFormData({
+      //       url: this.url,
+      //       data: this.valueList
+      //     }).then(res => {
+      //       this.$emit('on-submit-success', res)
+      //       console.log(res)
+      //     }).catch(err => {
+      //       console.log(err)
+      //       const fakeErr = { name: '你又把名字写错了！' }
+      //       this.$emit('on-submit-error', fakeErr)
+      //       for (let key in fakeErr) {
+      //         this.errorStore[key] = fakeErr[key]
+      //       }
+      //       // this.$emit('on-submit-error', err)
+      //     })
+      //   }
+      // })
+    },
+    handleReset () {
+      this.valueList = clonedeep(this.initValueList)
+    },
     // handleSubmit () {
     //   this.$refs.form.validate(valid => {
     //     if (valid) {

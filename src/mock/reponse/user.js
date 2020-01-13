@@ -60,6 +60,7 @@ export const authorization = () => {
           count_to: true,
           menu_page: true,
           upload: true,
+          optimize_page: true,
           form: true,
           folder_tree: false,
           render_page: true,

@@ -63,6 +63,12 @@ export const routerMap = [
       import(/* webpackChunkName: "about" */ '../views/IconPage.vue')
   },
   {
+    path: '/optimize',
+    name: 'optimize_page',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Optimize.vue')
+  },
+  {
     path: '/form',
     name: 'form',
     component: () =>
