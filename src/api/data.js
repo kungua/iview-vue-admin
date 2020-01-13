@@ -21,9 +21,10 @@ export const getTableData = () => {
   })
 }
 
-export const sentFormData = (data) => {
+export const sentFormData = ({ url, data }) => {
   return _$.request({
-    url: '/formData',
+    // url: '/formData',
+    url,
     data,
     method: 'post'
   })

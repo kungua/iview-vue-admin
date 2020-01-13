@@ -42,7 +42,7 @@ class HttpRequest {
       },
       error => {
         delete this.queue[url]
-        return Promise.reject(error)
+        return Promise.reject(error.response.data)
       }
     )
   }
