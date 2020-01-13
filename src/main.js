@@ -5,6 +5,9 @@ import store from './store'
 import Bus from './lib/bus'
 import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
+// import './assets/font/iconfont.js'
+import './assets/font/iconfont.css'
+import IconFont from './components/icon-font'
 
 // import CountTo from './components/count-to/CountTo'
 
@@ -14,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 Vue.use(ViewUI)
 Vue.config.productionTip = false
+Vue.component('icon-font', IconFont)
 Vue.prototype.$bus = Bus
 
 new Vue({

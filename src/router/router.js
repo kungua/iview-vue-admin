@@ -57,6 +57,12 @@ export const routerMap = [
       import(/* webpackChunkName: "about" */ '../views/Upload.vue')
   },
   {
+    path: '/icon-page',
+    name: 'icon_page',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/IconPage.vue')
+  },
+  {
     path: '/form',
     name: 'form',
     component: () =>
