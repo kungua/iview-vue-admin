@@ -57,6 +57,12 @@ export const routerMap = [
       import(/* webpackChunkName: "about" */ '../views/Upload.vue')
   },
   {
+    path: '/bigfile-upload',
+    name: 'bigfile_upload',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/UploadBigFile.vue')
+  },
+  {
     path: '/icon-page',
     name: 'icon_page',
     component: () =>

@@ -71,6 +71,7 @@ export const authorization = () => {
           icon_page: true,
           store: true,
           main: true,
+          bigfile_upload: true
         },
         component: {
           edit_button: true,

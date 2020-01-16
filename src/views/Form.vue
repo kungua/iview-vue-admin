@@ -35,7 +35,7 @@
 import clonedeep from 'clonedeep'
 import formData from '../mock/reponse/formData'
 import FormSingle from '../components/form-single'
-import { sentFormData } from '../api/data'
+// import { sentFormData } from '../api/data'
 
 // const validateName = (rule, value, callback) => {
 //   if (value !== 'hongkun') {
