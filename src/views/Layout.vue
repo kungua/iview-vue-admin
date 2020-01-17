@@ -1,10 +1,15 @@
 <template>
   <div class="layout-wrapper">
     <Layout class="layout-outer">
-      <Sider v-model="collapsed" breakpoint="sm" collapsible hide-trigger>
-        <side-menu :collapsed="collapsed" :list="list">
-          我是一个 menu
-        </side-menu>
+      <Sider
+        :width="200"
+        v-model="collapsed"
+        breakpoint="sm"
+        collapsible
+        hide-trigger
+        class="sider-outer"
+      >
+        <side-menu :collapsed="collapsed" :list="routers"/>
       </Sider>
       <Layout>
         <Header class="header-wrapper">
@@ -16,17 +21,35 @@
           ></Icon>
         </Header>
         <i-content class="content-con">
-          <Card class="page-card" shadow>
-            <router-view/>
-          </Card>
+          <div>
+            <Tabs
+              :value="getTabNameByRoute($route)"
+              :animated="false"
+              @on-click="handleClickTab"
+              type="card">
+              <TabPane
+                v-for="(item, index) in tabList"
+                :name="getTabNameByRoute(item)"
+                :label="labelRender(item)"
+                :key="`tabNav_${index}`"
+              />
+            </Tabs>
+          </div>
+          <div class="view-box">
+            <Card class="page-card" shadow>
+              <router-view></router-view>
+            </Card>
+          </div>
         </i-content>
       </Layout>
     </Layout>
   </div>
 </template>
 
-<script>
+<script type="text/jsx">
 import SideMenu from '../components/SideMenu'
+import { getTabNameByRoute, getRouteById } from '../lib/utils'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -34,45 +57,62 @@ export default {
   },
   data () {
     return {
-      collapsed: true,
-      list: [
-        { title: '1111', icon: 'ios-analytics' },
-        { title: '2222', icon: 'ios-analytics' },
-        {
-          title: '3333',
-          icon: 'ios-analytics',
-          children: [
-            { title: '3333-1', icon: 'ios-analytics' },
-            {
-              title: '3333-2',
-              icon: 'ios-analytics',
-              children: [
-                { title: '3333-2-1', icon: 'ios-analytics' },
-                {
-                  title: '3333-2-2',
-                  children: [{ title: '3333-2-2-1' }, { title: '3333-2-2-2' }]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      collapsed: false,
+      list: [],
+      getTabNameByRoute,
     }
   },
   computed: {
+    ...mapState({
+      routers: state =>
+        state.router.routers.filter(route => {
+          return route.path !== '*' && route.name !== 'login'
+        }),
+      tabList: state => state.tabNav.tabList
+    }),
     triggerClasses () {
       return ['trigger-icon', this.collapsed ? 'rotate' : '']
     }
   },
   methods: {
+    ...mapActions([
+      'handleRemove'
+    ]),
+    handleClickTab (id) {
+      let route = getRouteById(id)
+      this.$router.push(route)
+    },
     handleCollapsed () {
       this.collapsed = !this.collapsed
+    },
+    handleTabRemove (id, ev) {
+      ev.stopPropagation()
+      this.handleRemove({
+        id,
+        route: this.$route
+      }).then(nextRoute => {
+        this.$router.push(nextRoute)
+      })
+    },
+    labelRender (item) {
+      console.log(item)
+      return h => {
+        return (
+          <div>
+            <span>{item.meta.title}</span>
+            <icon
+              nativeOn-click={this.handleTabRemove.bind(this, getTabNameByRoute(item))}
+              type="md-close-circle"
+              style="line-height: 10px; "></icon>
+          </div>
+        )
+      }
     }
   }
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 .layout-wrapper,
 .layout-outer {
   height: 100%;
@@ -92,8 +132,27 @@ export default {
     }
   }
 
+  .sider-outer {
+    height: 100%;
+    overflow: hidden;
+
+    .ivu-layout-sider-children {
+      margin-right: -20px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
   .content-con {
-    padding: 10px;
+    padding: 0;
+
+    .ivu-tabs-bar {
+      margin-bottom: 0;
+    }
+
+    .ivu-box {
+      padding: 0;
+    }
 
     .page-card {
       min-height: ~"calc(100vh - 84px)";

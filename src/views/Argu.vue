@@ -1,12 +1,12 @@
 <template>
-  <div>{{ name }}</div>
+  <div>{{ id }}</div>
 </template>
 
 <script>
 export default {
   name: 'Argu',
   props: {
-    name: {
+    id: {
       type: [String, Number],
       default: 'guakun'
     }

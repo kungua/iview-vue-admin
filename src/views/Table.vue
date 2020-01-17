@@ -3,6 +3,7 @@
     Table Page
     <edit-table-mul v-model="tableData" :columns="columns"/>
     <div style="height: 20px;"></div>
+    <Button @click="turnTo">打开参数页面</Button>
     <!--    <edit-table v-model="tableData" :columns="columns" @on-edit="handleEdit"></edit-table>-->
   </div>
 </template>
@@ -36,6 +37,15 @@ export default {
   methods: {
     handleEdit ({ row, index, column, newValue }) {
       console.log({ row, index, column, newValue })
+    },
+    turnTo () {
+      let id = 'params' + (Math.random() * 1000).toFixed()
+      this.$router.push({
+        name: 'params',
+        params: {
+          id
+        }
+      })
     }
   }
 }

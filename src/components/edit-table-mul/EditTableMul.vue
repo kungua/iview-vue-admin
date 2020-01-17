@@ -46,8 +46,6 @@ export default {
           item.render = (h, { row, index, column }) => {
             const keyArr = this.insideData[index] ? this.insideData[index].editingKeyArr : []
             const isEditing = keyArr && keyArr.indexOf(column.key) > -1
-            console.log('keyArr')
-            console.log(keyArr)
             return (
               <div>
                 {

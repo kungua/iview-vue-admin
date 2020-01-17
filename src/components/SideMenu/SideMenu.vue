@@ -1,45 +1,59 @@
 <template>
   <div class="side-menu-wrapper">
     <slot></slot>
-    <Menu v-if="!collapsed" width="auto" theme="dark">
+    <Menu
+      v-if="!collapsed"
+      :active-name="$route.name"
+      :open-names="openNames"
+      @on-select="handleSelect"
+      width="auto"
+      theme="dark"
+      ref="menu"
+    >
       <template v-for="item in list">
         <re-submenu
           v-if="item.children"
-          :key="`menu_${item.title}`"
+          :key="`menu_${item.meta.title}`"
           :parent="item"
         />
-        <menu-item v-else :key="`menu_${item.title}`" :name="item.title">
+        <menu-item
+          v-else
+          :key="`menu_${item.meta.title}`"
+          :name="item.name"
+        >
           <Icon v-if="item.icon" :type="item.icon"></Icon>
-          {{ item.title }}
+          {{ item.meta.title }}
         </menu-item>
       </template>
     </Menu>
-    <div v-else>
-      <template v-for="item in list">
-        <re-dropdown
-          v-if="item.children"
-          :key="`drop_${item.title}`"
-          :parent="item"
-        />
-        <Tooltip
-          v-else
-          :content="item.title"
-          :key="`drop_${item.title}`"
-          placement="right"
-          transfer
-        >
-          <a href="" class="drop-menu-a">
-            <Icon v-if="item.icon" :type="item.icon" size="20"></Icon>
-          </a>
-        </Tooltip>
-      </template>
-    </div>
+    <!--    <div v-else>-->
+    <!--      <template v-for="item in list">-->
+    <!--        <re-dropdown-->
+    <!--          v-if="item.children"-->
+    <!--          :key="`drop_${item.title}`"-->
+    <!--          :parent="item"-->
+    <!--        />-->
+    <!--        <Tooltip-->
+    <!--          v-else-->
+    <!--          :content="item.title"-->
+    <!--          :key="`drop_${item.title}`"-->
+    <!--          placement="right"-->
+    <!--          transfer-->
+    <!--        >-->
+    <!--          <a href="" class="drop-menu-a">-->
+    <!--            <Icon v-if="item.icon" :type="item.icon" size="20"></Icon>-->
+    <!--          </a>-->
+    <!--        </Tooltip>-->
+    <!--      </template>-->
+    <!--    </div>-->
   </div>
 </template>
 
 <script>
 import ReSubmenu from './ReSubmenu'
-import ReDropdown from './ReDropdown'
+import { mapState } from 'vuex'
+import { getOpenArrByName } from '../../lib/utils'
+// import ReDropdown from './ReDropdown'
 
 export default {
   name: 'SideMenu',
@@ -54,8 +68,29 @@ export default {
     }
   },
   components: {
-    ReSubmenu,
-    ReDropdown
+    ReSubmenu
+    // ReDropdown
+  },
+  computed: {
+    ...mapState({
+      routers: state => state.router.routers
+    }),
+    openNames () {
+      console.log(getOpenArrByName(this.$route.name, this.routers))
+      return getOpenArrByName(this.$route.name, this.routers)
+    }
+  },
+  watch: {
+    openNames () {
+      this.$nextTick(() => {
+        this.$refs.menu.updateOpened()
+      })
+    }
+  },
+  methods: {
+    handleSelect (name) {
+      this.$router.push({ name })
+    }
   }
 }
 </script>

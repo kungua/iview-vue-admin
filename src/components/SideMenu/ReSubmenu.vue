@@ -1,17 +1,17 @@
 <template>
-  <Submenu :name="parent.title">
+  <Submenu :name="parent.meta.title">
     <template slot="title">
       <Icon v-if="parent.icon" :type="parent.icon"></Icon>
-      {{ parent.title }}
+      {{ parent.meta.title }}
     </template>
     <template v-for="item in parent.children">
       <re-submenu
         v-if="item.children"
-        :key="`menu_${item.title}`"
+        :key="`menu_${item.meta.title}`"
         :parent="item"
       ></re-submenu>
-      <menu-item v-else :key="`menu_${item.title}`" :name="item.title">
-        {{ item.title }}
+      <menu-item v-else :key="`menu_${item.meta.title}`" :name="item.name">
+        {{ item.meta.title }}
       </menu-item>
     </template>
   </Submenu>

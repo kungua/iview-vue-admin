@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <layout>
-      <router-view/>
-    </layout>
+    <!--    <router-view/>-->
     <!--    <div id="nav">-->
     <!--      <Button @click="handleClick('back')"> 返回上一页</Button>-->
     <!--      <Button @click="handleClick('push')"> 跳转到 parent</Button>-->
@@ -14,34 +12,37 @@
     <!--    </div>-->
     <!--    <div class="bar"></div>-->
     <!--        <transition-group :name="routerTransition">-->
-    <!--          <router-view key="default"/>-->
-    <!--          <router-view key="email" name="email"/>-->
-    <!--          <router-view key="tel" name="tel"/>-->
+    <router-view key="default"/>
+    <router-view key="email" name="email"/>
+    <router-view key="tel" name="tel"/>
     <!--        </transition-group>-->
   </div>
 </template>
 
 <script>
-import Layout from './views/Layout'
-
+import { mapMutations } from 'vuex'
 export default {
   name: 'Admin',
-  components: {
-    Layout
-  },
+  components: {},
   data () {
     return {
       routerTransition: ''
     }
   },
   watch: {
-    $route (to) {
-      to.query &&
-      to.query.transitionName &&
-      (this.routerTransition = to.query.transitionName)
+    // $route (to) {
+    //   to.query &&
+    //   to.query.transitionName &&
+    //   (this.routerTransition = to.query.transitionName)
+    // }
+    '$route' (newRoute) {
+      this.UPDATE_ROUTES(newRoute)
     }
   },
   methods: {
+    ...mapMutations([
+      'UPDATE_ROUTES'
+    ]),
     handleClick (type) {
       if (type === 'back') {
         this.$router.back()
